@@ -11,7 +11,7 @@ export default function NotFoundResults() {
         size={35}
         color="orange"
       />
-      <Text style={styles.itemTitle}>No hay resultados</Text>
+      <Text style={styles.itemTitle}>Not Found Results</Text>
     </View>
   );
 }

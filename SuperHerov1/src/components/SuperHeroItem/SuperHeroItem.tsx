@@ -1,29 +1,40 @@
 import React from 'react';
 import {Image, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Icon} from 'react-native-elements';
 
 export default function SuperHeroeItem({heroes, navigation}): JSX.Element {
   const {image, name} = heroes;
 
   return (
-    <TouchableOpacity
-      style={styles.itemContainer}
-      onPress={() =>
-        navigation.navigate('Details', {
-          screen: 'Details',
-          params: {heroes},
-        })
-      }>
-      <Image style={styles.itemImage} source={{uri: image.url}} />
-      <View style={{flexDirection: 'column'}}>
-        <Text style={styles.itemTitle}>{name}</Text>
-      </View>
-    </TouchableOpacity>
+    <View style={[styles.itemContainer, {justifyContent: 'space-between'}]}>
+      <TouchableOpacity
+        style={styles.itemContainer}
+        onPress={() =>
+          navigation.navigate('Details', {
+            screen: 'Details',
+            params: {heroes},
+          })
+        }>
+        <Image style={styles.itemImage} source={{uri: image.url}} />
+        <View style={{flexDirection: 'column'}}>
+          <Text style={styles.itemTitle}>{name}</Text>
+          <Text style={styles.itemActivity}>
+            Presione para ver mas detalles
+          </Text>
+        </View>
+      </TouchableOpacity>
+      <Icon
+        type="material-community"
+        name="account-multiple-plus-outline"
+        size={20}
+        color="orange"
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   itemContainer: {
-    //Estilos para el itemContainer
     flexDirection: 'row',
     padding: 10,
     alignItems: 'center',
@@ -38,7 +49,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     color: 'orange',
   },
-  itemState: {
+  itemActivity: {
     fontSize: 13,
     justifyContent: 'center',
     alignItems: 'center',
