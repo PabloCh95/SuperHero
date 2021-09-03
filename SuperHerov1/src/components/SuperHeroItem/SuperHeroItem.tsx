@@ -24,10 +24,13 @@ export default function SuperHeroeItem({heroes, navigation}): JSX.Element {
         </View>
       </TouchableOpacity>
       <Icon
-        type="material-community"
-        name="account-multiple-plus-outline"
+        type="antdesign"
+        name="plus"
         size={20}
         color="orange"
+        onPress={() => {
+          console.log('agregando');
+        }}
       />
     </View>
   );
