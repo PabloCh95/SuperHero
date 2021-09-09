@@ -4,37 +4,37 @@ import Loading from '../components/Loading/Loading';
 
 export default function DetailsHero(props:any) {
   const {route, navigation} = props;
-  const {heroes} = route.params.params;
- 
-  if (!heroes) {
+  const {heroe} = route.params.params;
+  console.log('heroe en details :',heroe)
+  if (!heroe) {
     return <Loading isVisible={true} text="Cargando" />;
   }
   return (
     <ScrollView>
-      <Image source={{uri: heroes.image.url}} style={styles.ImageHero} />
-      <Text style={styles.TitleName}>{heroes.name}</Text>
+      <Image source={{uri: heroe.image.url}} style={styles.ImageHero} />
+      <Text style={styles.TitleName}>{heroe.name}</Text>
       <Text style={styles.Description}></Text>
       <View style={{flexDirection:"column",alignItems:"center"}}>
           <Text style={styles.Description}>
-            Full Name: {heroes.biography.["full-name"]}
+            Full Name: {heroe.biography.["full-name"]}
           </Text>
           <Text style={styles.Description}>
-            Alias: {heroes.biography.aliases[0]} 
+            Alias: {heroe.biography.aliases[0]} 
           </Text>
           <Text style={styles.Description}>
-            Workplace: {heroes.work.base }
+            Workplace: {heroe.work.base }
            </Text>
             <Text style={styles.Description}>
-                Weight: {heroes.appearance.weight[1]}
+                Weight: {heroe.appearance.weight[1]}
             </Text>
             <Text style={styles.Description}>
-                Height: {heroes.appearance.height[1]}
+                Height: {heroe.appearance.height[1]}
             </Text>
             <Text style={styles.Description}>
-                Eye Color: {heroes.appearance.['eye-color']}
+                Eye Color: {heroe.appearance.['eye-color']}
             </Text>
             <Text style={styles.Description}>
-                Hair Color: {heroes.appearance.['hair-color']}
+                Hair Color: {heroe.appearance.['hair-color']}
             </Text>
         
       </View>

@@ -2,22 +2,30 @@ import React from 'react';
 import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Card, Image, Icon, LinearProgress} from 'react-native-elements';
 
-export default function CardHero({item, removeHero}): JSX.Element {
-  const {url} = item.image;
+export default function CardHero({heroe, removeHero, navigation}): JSX.Element {
+  console.log('hero :', heroe);
+  const {url} = heroe.image;
   return (
     <Card containerStyle={styles.containerCard}>
-      <TouchableOpacity style={{flexDirection: 'row'}}>
+      <TouchableOpacity
+        style={{flexDirection: 'row'}}
+        onPress={() =>
+          navigation.navigate('Details', {
+            screen: 'Details',
+            params: {heroe},
+          })
+        }>
         <View style={styles.viewPowerstate}>
           <Text style={styles.itemPowerstate}>
-            combat: {item.powerstats.combat}
+            combat: {heroe.powerstats.combat}
           </Text>
           <LinearProgress color="orange" />
           <Text style={styles.itemPowerstate}>
-            durability: {item.powerstats.durability}
+            durability: {heroe.powerstats.durability}
           </Text>
           <LinearProgress color="orange" />
           <Text style={styles.itemPowerstate}>
-            intelligence: {item.powerstats.intelligence}
+            intelligence: {heroe.powerstats.intelligence}
           </Text>
           <LinearProgress color="orange" />
         </View>
@@ -25,7 +33,7 @@ export default function CardHero({item, removeHero}): JSX.Element {
           style={{
             alignItems: 'center',
           }}>
-          <Text style={styles.itemTitle}>{item.name}</Text>
+          <Text style={styles.itemTitle}>{heroe.name}</Text>
           <Image
             source={{uri: url}}
             style={styles.itemImage}
@@ -34,15 +42,15 @@ export default function CardHero({item, removeHero}): JSX.Element {
         </View>
         <View style={styles.viewPowerstate}>
           <Text style={styles.itemPowerstate}>
-            power: {item.powerstats.power},
+            power: {heroe.powerstats.power},
           </Text>
           <LinearProgress color="orange" />
           <Text style={styles.itemPowerstate}>
-            speed: {item.powerstats.speed}
+            speed: {heroe.powerstats.speed}
           </Text>
           <LinearProgress color="orange" />
           <Text style={styles.itemPowerstate}>
-            strength: {item.powerstats.strength}
+            strength: {heroe.powerstats.strength}
           </Text>
           <LinearProgress color="orange" />
         </View>
@@ -52,7 +60,7 @@ export default function CardHero({item, removeHero}): JSX.Element {
         name="delete"
         size={30}
         color="orange"
-        onPress={() => removeHero(item)}
+        onPress={() => removeHero(heroe)}
       />
     </Card>
   );

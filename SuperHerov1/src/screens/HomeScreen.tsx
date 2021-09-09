@@ -14,13 +14,13 @@ interface RootDefaultState {
   user: typeof UserSlice;
 }
 
-export default function HomeScreen(): JSX.Element {
+export default function HomeScreen({navigation}: any): JSX.Element {
   const dispatch = useDispatch();
   const selector = useSelector<RootDefaultState, Result[]>(
     (state: RootDefaultState) => state.hero,
   );
-  const removeHero = item => {
-    dispatch(deleteHeros(item));
+  const removeHero = heroe => {
+    dispatch(deleteHeros(hero));
   };
 
   return (
@@ -28,7 +28,11 @@ export default function HomeScreen(): JSX.Element {
       <Carousel
         data={selector}
         renderItem={item => (
-          <CardHero item={item.item} removeHero={removeHero} />
+          <CardHero
+            heroe={item.item}
+            removeHero={removeHero}
+            navigation={navigation}
+          />
         )}
         keyExtractor={(item: any, index: number) => index.toString()}
       />
