@@ -6,9 +6,11 @@ import Search from '../screens/Search';
 
 import {Icon} from 'react-native-elements';
 
+import {Route} from '../utils/interface';
+
 const Tab = createBottomTabNavigator();
 
-export default function InitialTab() {
+export default function InitialTab(): JSX.Element {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -20,7 +22,7 @@ export default function InitialTab() {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Home',
+          title: 'Team',
           headerTintColor: 'orange',
           headerTitleAlign: 'center',
         }}
@@ -38,7 +40,7 @@ export default function InitialTab() {
   );
 }
 
-function screenOptions(route: String, color: String): JSX.Element {
+function screenOptions(route: Route, color: string): JSX.Element {
   let iconName = '';
 
   switch (route.name) {

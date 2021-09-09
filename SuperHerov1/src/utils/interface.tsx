@@ -56,3 +56,16 @@ export interface RootObject {
   resultsfor?: string;
   results?: Result[];
 }
+
+export interface Route {
+  key: string;
+  name: string;
+  params: object;
+}
+
+export interface User {
+  token: string;
+}
+export interface Err {
+  error: string;
+}

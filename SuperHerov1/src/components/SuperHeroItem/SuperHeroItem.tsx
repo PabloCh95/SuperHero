@@ -1,26 +1,40 @@
 import React from 'react';
 import {Image, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon} from 'react-native-elements';
+import {useDispatch} from 'react-redux';
+import {addHeros} from '../../store/HeroSlice';
+import {Result} from '../../utils/interface';
+interface Props {
+  heroe: Result;
+  navigation: any;
+}
 
-export default function SuperHeroeItem({heroes, navigation}): JSX.Element {
-  const {image, name} = heroes;
+export default function SuperHeroeItem({
+  heroe,
+  navigation,
+}: Props): JSX.Element {
+  const {image, name} = heroe;
+
+  const dispatch = useDispatch();
+
+  const add = () => {
+    dispatch(addHeros(heroe));
+  };
 
   return (
     <View style={[styles.itemContainer, {justifyContent: 'space-between'}]}>
       <TouchableOpacity
-        style={styles.itemContainer}
+        style={[styles.itemContainer, {width: '85%'}]}
         onPress={() =>
           navigation.navigate('Details', {
             screen: 'Details',
-            params: {heroes},
+            params: {heroe},
           })
         }>
-        <Image style={styles.itemImage} source={{uri: image.url}} />
+        <Image style={styles.itemImage} source={{uri: image?.url}} />
         <View style={{flexDirection: 'column'}}>
           <Text style={styles.itemTitle}>{name}</Text>
-          <Text style={styles.itemActivity}>
-            Presione para ver mas detalles
-          </Text>
+          <Text style={styles.itemActivity}>Press for more details</Text>
         </View>
       </TouchableOpacity>
       <Icon
@@ -28,9 +42,7 @@ export default function SuperHeroeItem({heroes, navigation}): JSX.Element {
         name="plus"
         size={20}
         color="orange"
-        onPress={() => {
-          console.log('agregando');
-        }}
+        onPress={add}
       />
     </View>
   );

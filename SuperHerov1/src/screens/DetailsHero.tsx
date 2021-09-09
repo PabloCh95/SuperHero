@@ -2,7 +2,7 @@ import React from 'react';
 import {ScrollView, Text, Image, StyleSheet, View} from 'react-native';
 import Loading from '../components/Loading/Loading';
 
-export default function DetailsHero(props) {
+export default function DetailsHero(props:any) {
   const {route, navigation} = props;
   const {heroes} = route.params.params;
  
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   ImageHero: {
     marginTop: 10,
     marginBottom: 10,
-    height: 220,
+    height: 400,
   },
   TitleName: {
     fontSize: 30,

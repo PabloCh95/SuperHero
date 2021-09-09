@@ -6,14 +6,14 @@ import {SearchBar} from 'react-native-elements';
 import {getSearch} from '../api/Search';
 import {RootObject} from '../utils/interface';
 
-export default function Search(props): JSX.Element {
+export default function Search(props: {navigation: any}): JSX.Element {
   const {navigation} = props;
   const [search, setSearch] = useState<string>('');
   const [superHeroes, setSuperHeroes] = useState<RootObject>({});
 
   useEffect(() => {
     (async () => {
-      if (search) {
+      if (search.length > 3) {
         setSuperHeroes(await getSearch(search));
       }
     })();
@@ -23,7 +23,7 @@ export default function Search(props): JSX.Element {
     <View>
       <SearchBar
         placeholder="Busca un Superheroe..."
-        onChangeText={e => setSearch(e)}
+        onChangeText={(e: string) => setSearch(e)}
         value={search}
         containerStyle={styles.searchBar}
         round={true}
@@ -33,9 +33,9 @@ export default function Search(props): JSX.Element {
         <FlatList
           data={superHeroes.results}
           renderItem={heroes => (
-            <SuperHeroeItem heroes={heroes.item} navigation={navigation} />
+            <SuperHeroeItem heroe={heroes.item} navigation={navigation} />
           )}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={(item, index: number) => index.toString()}
         />
       ) : (
         <NotFoundResults />

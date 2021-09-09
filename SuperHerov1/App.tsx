@@ -8,10 +8,20 @@
  * @format
  */
 
-import React, {FC} from 'react';
+import React from 'react';
 import Navigation from './src/navigation/navigation';
-function App(): FC {
-  return <Navigation />;
+import {Provider} from 'react-redux';
+import store from './src/store/store';
+
+function App(): JSX.Element {
+  return (
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
+  );
 }
 
 export default App;
+
+//tengo que aplicar una validacion para el search
+//tambien tengo que resolver como  verificar la conexion de red
