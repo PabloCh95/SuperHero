@@ -1,13 +1,15 @@
 import React, {useEffect} from 'react';
 import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {useDispatch, useSelector} from 'react-redux';
+import {addToken} from '../store/UserSlice';
 //screens
 import InitialTab from './InitialTab';
 import DetailsHero from '../screens/DetailsHero';
 import Login from '../screens/Login';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useDispatch, useSelector} from 'react-redux';
-import {addToken} from '../store/UserSlice';
+import Register from '../screens/Register';
 //import {User} from '../utils/interface';
 
 const Stack = createNativeStackNavigator();
@@ -51,6 +53,11 @@ export default function navigation(): JSX.Element {
               name="login"
               component={Login}
               options={{header: () => null}}
+            />
+            <Stack.Screen
+              name="register"
+              component={Register}
+              options={{title: 'Register', headerTintColor: 'orange'}}
             />
           </>
         )}

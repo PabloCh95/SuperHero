@@ -1,3 +1,6 @@
+import HeroSlice from '../store/HeroSlice';
+import UserSlice from '../store/UserSlice';
+
 export interface Powerstats {
   intelligence?: string;
   strength?: string;
@@ -68,4 +71,9 @@ export interface User {
 }
 export interface Err {
   error: string;
+}
+
+export interface RootDefaultState {
+  hero: typeof HeroSlice;
+  user: typeof UserSlice;
 }

@@ -19,7 +19,7 @@ export default function InitialTab(): JSX.Element {
         tabBarInactiveTintColor: '#646464',
       })}>
       <Tab.Screen
-        name="Home"
+        name="Team"
         component={HomeScreen}
         options={{
           title: 'Team',
@@ -44,8 +44,8 @@ function screenOptions(route: Route, color: string): JSX.Element {
   let iconName = '';
 
   switch (route.name) {
-    case 'Home':
-      iconName = 'home';
+    case 'Team':
+      iconName = 'team';
       break;
     case 'Search':
       iconName = 'search1';

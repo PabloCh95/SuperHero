@@ -22,9 +22,9 @@ export default function SuperHeroeItem({
   };
 
   return (
-    <View style={[styles.itemContainer, {justifyContent: 'space-between'}]}>
+    <View style={[styles.itemContainer, styles.viewItem]}>
       <TouchableOpacity
-        style={[styles.itemContainer, {width: '85%'}]}
+        style={[styles.itemContainer, styles.touchView]}
         onPress={() =>
           navigation.navigate('Details', {
             screen: 'Details',
@@ -32,7 +32,7 @@ export default function SuperHeroeItem({
           })
         }>
         <Image style={styles.itemImage} source={{uri: image?.url}} />
-        <View style={{flexDirection: 'column'}}>
+        <View style={styles.viewText}>
           <Text style={styles.itemTitle}>{name}</Text>
           <Text style={styles.itemActivity}>Press for more details</Text>
         </View>
@@ -49,6 +49,13 @@ export default function SuperHeroeItem({
 }
 
 const styles = StyleSheet.create({
+  viewItem: {
+    justifyContent: 'space-between',
+  },
+  viewText: {flexDirection: 'column'},
+  touchView: {
+    width: '85%',
+  },
   itemContainer: {
     flexDirection: 'row',
     padding: 10,

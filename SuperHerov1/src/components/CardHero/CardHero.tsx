@@ -2,13 +2,16 @@ import React from 'react';
 import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Card, Image, Icon, LinearProgress} from 'react-native-elements';
 
-export default function CardHero({heroe, removeHero, navigation}): JSX.Element {
-  console.log('hero :', heroe);
+export default function CardHero({
+  heroe,
+  removeHero,
+  navigation,
+}: any): JSX.Element {
   const {url} = heroe.image;
   return (
     <Card containerStyle={styles.containerCard}>
       <TouchableOpacity
-        style={{flexDirection: 'row'}}
+        style={styles.touchContainer}
         onPress={() =>
           navigation.navigate('Details', {
             screen: 'Details',
@@ -29,10 +32,7 @@ export default function CardHero({heroe, removeHero, navigation}): JSX.Element {
           </Text>
           <LinearProgress color="orange" />
         </View>
-        <View
-          style={{
-            alignItems: 'center',
-          }}>
+        <View style={styles.viewTextImage}>
           <Text style={styles.itemTitle}>{heroe.name}</Text>
           <Image
             source={{uri: url}}
@@ -67,6 +67,12 @@ export default function CardHero({heroe, removeHero, navigation}): JSX.Element {
 }
 
 const styles = StyleSheet.create({
+  viewTextImage: {
+    alignItems: 'center',
+  },
+  touchContainer: {
+    flexDirection: 'row',
+  },
   containerCard: {
     height: 200,
     borderWidth: 0,

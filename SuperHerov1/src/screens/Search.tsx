@@ -23,13 +23,13 @@ export default function Search(props: {navigation: any}): JSX.Element {
     <View>
       <SearchBar
         placeholder="Busca un Superheroe..."
-        onChangeText={(e: string) => setSearch(e)}
+        onChangeText={(e: string): void => setSearch(e)}
         value={search}
         containerStyle={styles.searchBar}
         round={true}
       />
 
-      {superHeroes.response == 'success' ? (
+      {superHeroes.response === 'success' ? (
         <FlatList
           data={superHeroes.results}
           renderItem={heroes => (

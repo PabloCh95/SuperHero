@@ -1,8 +1,6 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/core';
-import {ScrollView, StyleSheet, Image, View, Text} from 'react-native';
-import {Divider} from 'react-native-elements';
-import LoginForm from '../components/LoginForm/LoginForm';
+import {ScrollView, StyleSheet, Image, View} from 'react-native';
+import {Divider, Text} from 'react-native-elements';
 
 export default function Login(): JSX.Element {
   return (
@@ -14,23 +12,9 @@ export default function Login(): JSX.Element {
       />
       <Divider style={styles.divider} color="orange" />
       <View style={styles.viewContainer}>
-        <LoginForm />
-        <CreateAccount />
+        <Text style={styles.textRegister}>Aca va el Form</Text>
       </View>
     </ScrollView>
-  );
-}
-function CreateAccount() {
-  const navigation = useNavigation();
-  return (
-    <Text style={styles.textRegister}>
-      ¿Do you haven't an account?{' '}
-      <Text
-        style={styles.btnRegister}
-        onPress={() => navigation.navigate('register')}>
-        Sign up
-      </Text>
-    </Text>
   );
 }
 
@@ -48,14 +32,10 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginLeft: 10,
     marginRight: 10,
-    color: '#fff',
-    textAlign: 'center',
-  },
-  btnRegister: {
     color: 'orange',
-    fontWeight: 'bold',
   },
   divider: {
+    backgroundColor: 'orange',
     margin: 40,
   },
 });

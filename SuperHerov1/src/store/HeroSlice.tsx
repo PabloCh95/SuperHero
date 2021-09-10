@@ -15,14 +15,13 @@ const HeroSlice = createSlice({
     ): void => {
       state.push(action.payload);
     },
-    deleteHeros: (state: Result[], action: PayloadAction<Result>) => {
-      console.log(state.length);
+    deleteHeros: (state: Result[], action: PayloadAction<Result>): Result[] => {
       state = [
         ...state.filter(element => {
-          return element?.id != action.payload.id;
+          return element?.id !== action.payload.id;
         }),
       ];
-      console.log(state.length);
+      return state;
     },
   },
 });
