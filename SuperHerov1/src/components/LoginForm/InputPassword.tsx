@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {Text, TextInput, StyleSheet} from 'react-native';
+import {Text, StyleSheet} from 'react-native';
 import {Input, Icon} from 'react-native-elements';
 
-export const InputPassword = props => {
+export const InputPassword = (props: any) => {
   const [showPassword, setShowPassword] = useState(false);
   const {
     field: {name, onBlur, onChange, value},
@@ -21,7 +21,7 @@ export const InputPassword = props => {
           hasError && styles.errorInput,
         ]}
         containerStyle={styles.inputForm}
-        inputContainerStyle={{borderColor: 'orange'}}
+        inputContainerStyle={styles.inputContainerStyle}
         value={value}
         onChangeText={text => onChange(name)(text)}
         onBlur={() => {
@@ -63,6 +63,9 @@ const styles = StyleSheet.create({
   },
   iconRight: {
     color: 'orange',
+  },
+  inputContainerStyle: {
+    borderColor: 'orange',
   },
 });
 

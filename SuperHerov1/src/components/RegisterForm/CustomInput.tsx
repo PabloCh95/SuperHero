@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, StyleSheet} from 'react-native';
 import {Input, Icon} from 'react-native-elements';
 
-const InputEmail = (props: any) => {
+const CustomInput = (props: any) => {
   const {
     field: {name, onBlur, onChange, value},
     form: {errors, touched, setFieldTouched},
@@ -30,7 +30,7 @@ const InputEmail = (props: any) => {
         rightIcon={
           <Icon
             type="material-community"
-            name="at"
+            name="account"
             iconStyle={styles.iconRight}
           />
         }
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InputEmail;
+export default CustomInput;

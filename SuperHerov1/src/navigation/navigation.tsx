@@ -10,6 +10,10 @@ import InitialTab from './InitialTab';
 import DetailsHero from '../screens/DetailsHero';
 import Login from '../screens/Login';
 import Register from '../screens/Register';
+import Splash from '../screens/Splash';
+
+//import {RootDefaultState} from '../utils/interface';
+//import {Result} from '../utils/interface';
 //import {User} from '../utils/interface';
 
 const Stack = createNativeStackNavigator();
@@ -49,6 +53,11 @@ export default function navigation(): JSX.Element {
           </>
         ) : (
           <>
+            {/* <Stack.Screen
+              name="splash"
+              component={Splash}
+              options={{header: () => null}}
+            />*/}
             <Stack.Screen
               name="login"
               component={Login}

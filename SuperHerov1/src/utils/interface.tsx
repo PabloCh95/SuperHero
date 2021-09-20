@@ -2,12 +2,12 @@ import HeroSlice from '../store/HeroSlice';
 import UserSlice from '../store/UserSlice';
 
 export interface Powerstats {
-  intelligence?: string;
-  strength?: string;
-  speed?: string;
-  durability?: string;
-  power?: string;
-  combat?: string;
+  intelligence: string;
+  strength: string;
+  speed: string;
+  durability: string;
+  power: string;
+  combat: string;
 }
 
 export interface Biography {
@@ -46,7 +46,7 @@ export interface Image {
 export interface Result {
   id?: string;
   name?: string;
-  powerstats?: Powerstats;
+  powerstats: Powerstats;
   biography?: Biography;
   appearance?: Appearance;
   work?: Work;
@@ -67,6 +67,7 @@ export interface Route {
 }
 
 export interface User {
+  data: any;
   token: string;
 }
 export interface Err {

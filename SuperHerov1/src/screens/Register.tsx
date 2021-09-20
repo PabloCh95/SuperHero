@@ -1,10 +1,12 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Image, View} from 'react-native';
-import {Divider, Text} from 'react-native-elements';
+import {StyleSheet, Image, View} from 'react-native';
+import {Divider} from 'react-native-elements';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import RegisterForm from '../components/RegisterForm/RegisterForm';
 
 export default function Login(): JSX.Element {
   return (
-    <ScrollView>
+    <KeyboardAwareScrollView>
       <Image
         source={require('../assets/img/jpg/logo4.jpg')}
         resizeMode="contain"
@@ -12,9 +14,9 @@ export default function Login(): JSX.Element {
       />
       <Divider style={styles.divider} color="orange" />
       <View style={styles.viewContainer}>
-        <Text style={styles.textRegister}>Aca va el Form</Text>
+        <RegisterForm />
       </View>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 }
 

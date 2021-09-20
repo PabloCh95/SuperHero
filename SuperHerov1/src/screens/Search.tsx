@@ -22,7 +22,7 @@ export default function Search(props: {navigation: any}): JSX.Element {
   return (
     <View>
       <SearchBar
-        placeholder="Busca un Superheroe..."
+        placeholder="Search a Hero..."
         onChangeText={(e: string): void => setSearch(e)}
         value={search}
         containerStyle={styles.searchBar}

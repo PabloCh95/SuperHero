@@ -1,7 +1,8 @@
 import React from 'react';
-import Carousel from 'react-native-anchor-carousel';
 import {View} from 'react-native';
+import Carousel from 'react-native-anchor-carousel';
 import CardHero from '../components/CardHero/CardHero';
+import InfoMyTeam from '../components/InfoMyTeam/InfoMyTeam';
 import {useSelector, useDispatch} from 'react-redux';
 //import {Reducer} from '@reduxjs/toolkit';
 import {RootDefaultState} from '../utils/interface';
@@ -30,6 +31,7 @@ export default function HomeScreen({navigation}: any): JSX.Element {
         )}
         keyExtractor={(item: any, index: number) => index.toString()}
       />
+      <InfoMyTeam heroes={selector} />
     </View>
   );
 }
