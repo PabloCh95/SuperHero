@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -12,15 +12,12 @@ import Login from '../screens/Login';
 import Register from '../screens/Register';
 import Splash from '../screens/Splash';
 
-//import {RootDefaultState} from '../utils/interface';
-//import {Result} from '../utils/interface';
-//import {User} from '../utils/interface';
-
 const Stack = createNativeStackNavigator();
 
 export default function navigation(): JSX.Element {
   const dispatch = useDispatch();
   const selector = useSelector(state => state.user);
+  const [splash, setSplash] = useState<boolean>(false);
 
   const login = async () => {
     try {
@@ -33,7 +30,25 @@ export default function navigation(): JSX.Element {
 
   useEffect(() => {
     login();
+
+    setTimeout(() => {
+      setSplash(true);
+    }, 3000);
   }, []);
+
+  if (!splash) {
+    return (
+      <NavigationContainer theme={DarkTheme}>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Splash"
+            component={Splash}
+            options={{header: () => null}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
 
   return (
     <NavigationContainer theme={DarkTheme}>
@@ -53,11 +68,6 @@ export default function navigation(): JSX.Element {
           </>
         ) : (
           <>
-            {/* <Stack.Screen
-              name="splash"
-              component={Splash}
-              options={{header: () => null}}
-            />*/}
             <Stack.Screen
               name="login"
               component={Login}

@@ -1,19 +1,26 @@
-import React, {useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
-import {useNavigation} from '@react-navigation/core';
+import React /*{useEffect}*/ from 'react';
+import {View, StyleSheet, StatusBar} from 'react-native';
+//import {useNavigation} from '@react-navigation/core';
 //import {useSelector} from 'react-redux';
 import * as Animatable from 'react-native-animatable';
 
 export default function Splash() {
-  const navigation = useNavigation();
-  //const selector = useSelector(state => state.user);
+  /* const navigation = useNavigation();
+  const selector = useSelector(state => state.user);
   useEffect(() => {
-    setTimeout(() => {
-      navigation.navigate('login');
-    }, 3000);
-  }, []);
+    {
+      selector
+        ? setTimeout(() => {
+            navigation.navigate('Initial');
+          }, 3000)
+        : setTimeout(() => {
+            navigation.navigate('login');
+          }, 3000);
+    }
+  }, [selector]);*/
   return (
     <View style={styles.viewContainer}>
+      <StatusBar backgroundColor="#000000" />
       <Animatable.Image
         animation="flash"
         easing="ease-in-out"
