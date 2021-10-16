@@ -1,12 +1,13 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/core';
-import {ScrollView, StyleSheet, Image, View, Text} from 'react-native';
+import {ScrollView, StyleSheet, Image, View, Text, StatusBar } from 'react-native';
 import {Divider} from 'react-native-elements';
 import LoginForm from '../components/LoginForm/LoginForm';
 
 export default function Login(): JSX.Element {
   return (
-    <ScrollView>
+    <ScrollView style={styles.containerView}>
+      <StatusBar backgroundColor="#000000" barStyle={'light-content'}/>
       <Image
         source={require('../assets/img/jpg/logo4.jpg')}
         resizeMode="contain"
@@ -35,6 +36,9 @@ function CreateAccount() {
 }
 
 const styles = StyleSheet.create({
+  containerView:{
+    marginTop:30
+  },
   logo: {
     width: '100%',
     height: 150,
