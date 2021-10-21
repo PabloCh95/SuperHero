@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import Carousel from 'react-native-anchor-carousel';
 import CardHero from '../components/CardHero/CardHero';
 import InfoMyTeam from '../components/InfoMyTeam/InfoMyTeam';
+import {StatusBar} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 //import {Reducer} from '@reduxjs/toolkit';
 import {RootDefaultState} from '../utils/interface';
@@ -20,6 +21,7 @@ export default function HomeScreen({navigation}: any): JSX.Element {
 
   return (
     <View>
+      <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
       <Carousel
         data={selector}
         renderItem={(item: any) => (

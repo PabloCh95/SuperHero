@@ -1,5 +1,12 @@
 import React from 'react';
-import {ScrollView, Text, Image, StyleSheet, View} from 'react-native';
+import {
+  ScrollView,
+  Text,
+  Image,
+  StyleSheet,
+  View,
+  StatusBar,
+} from 'react-native';
 import Loading from '../components/Loading/Loading';
 
 export default function DetailsHero(props: any) {
@@ -10,6 +17,7 @@ export default function DetailsHero(props: any) {
   }
   return (
     <ScrollView>
+      <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
       <Image source={{uri: heroe.image.url}} style={styles.ImageHero} />
       <Text style={styles.TitleName}>{heroe.name}</Text>
       <Text style={styles.Description}></Text>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image, View} from 'react-native';
+import {StyleSheet, Image, View, StatusBar} from 'react-native';
 import {Divider} from 'react-native-elements';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import RegisterForm from '../components/RegisterForm/RegisterForm';
@@ -7,6 +7,7 @@ import RegisterForm from '../components/RegisterForm/RegisterForm';
 export default function Login(): JSX.Element {
   return (
     <KeyboardAwareScrollView>
+      <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
       <Image
         source={require('../assets/img/jpg/logo4.jpg')}
         resizeMode="contain"

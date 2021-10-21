@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList, StatusBar} from 'react-native';
 import SuperHeroeItem from '../components/SuperHeroItem/SuperHeroItem';
 import NotFoundResults from '../components/NotFoundResults/NotFoundResults';
 import {SearchBar} from 'react-native-elements';
@@ -21,6 +21,7 @@ export default function Search(props: {navigation: any}): JSX.Element {
 
   return (
     <View>
+      <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
       <SearchBar
         placeholder="Search a Hero..."
         onChangeText={(e: string): void => setSearch(e)}
