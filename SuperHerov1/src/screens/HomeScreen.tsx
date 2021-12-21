@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Carousel from 'react-native-anchor-carousel';
 import CardHero from '../components/CardHero/CardHero';
 import InfoMyTeam from '../components/InfoMyTeam/InfoMyTeam';

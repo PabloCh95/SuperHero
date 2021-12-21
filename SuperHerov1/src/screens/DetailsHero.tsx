@@ -16,33 +16,35 @@ export default function DetailsHero(props: any) {
     return <Loading isVisible={true} text="Cargando" />;
   }
   return (
-    <ScrollView>
-      <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
-      <Image source={{uri: heroe.image.url}} style={styles.ImageHero} />
-      <Text style={styles.TitleName}>{heroe.name}</Text>
-      <Text style={styles.Description}></Text>
-      <View style={{flexDirection: 'column', alignItems: 'center'}}>
-        <Text style={styles.Description}>
-          Full Name: {heroe.biography?.['full-name']}
-        </Text>
-        <Text style={styles.Description}>
-          Alias: {heroe.biography.aliases[0]}
-        </Text>
-        <Text style={styles.Description}>Workplace: {heroe.work.base}</Text>
-        <Text style={styles.Description}>
-          Weight: {heroe.appearance.weight[1]}
-        </Text>
-        <Text style={styles.Description}>
-          Height: {heroe.appearance.height[1]}
-        </Text>
-        <Text style={styles.Description}>
-          Eye Color: {heroe.appearance?.['eye-color']}
-        </Text>
-        <Text style={styles.Description}>
-          Hair Color: {heroe.appearance?.['hair-color']}
-        </Text>
-      </View>
-    </ScrollView>
+    <View style={{flex: 1, flexGrow: 1}}>
+      <ScrollView>
+        <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
+        <Image source={{uri: heroe.image.url}} style={styles.ImageHero} />
+        <Text style={styles.TitleName}>{heroe.name}</Text>
+        <Text style={styles.Description}></Text>
+        <View style={{flexDirection: 'column', alignItems: 'center'}}>
+          <Text style={styles.Description}>
+            Full Name: {heroe.biography?.['full-name']}
+          </Text>
+          <Text style={styles.Description}>
+            Alias: {heroe.biography.aliases[0]}
+          </Text>
+          <Text style={styles.Description}>Workplace: {heroe.work.base}</Text>
+          <Text style={styles.Description}>
+            Weight: {heroe.appearance.weight[1]}
+          </Text>
+          <Text style={styles.Description}>
+            Height: {heroe.appearance.height[1]}
+          </Text>
+          <Text style={styles.Description}>
+            Eye Color: {heroe.appearance?.['eye-color']}
+          </Text>
+          <Text style={styles.Description}>
+            Hair Color: {heroe.appearance?.['hair-color']}
+          </Text>
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 

@@ -10,16 +10,22 @@ import {loginApi} from '../../api/User';
 import {useDispatch} from 'react-redux';
 import {addToken} from '../../store/UserSlice';
 
-export default function LoginForm(): JSX.Element {
+export default function LoginForm(props: any): JSX.Element {
+  const {setIsVisible, isVisible} = props;
   const dispatch = useDispatch();
   const onSubmitApi = async (values: any) => {
+    setIsVisible(!isVisible);
     loginApi({values})
       .then(async res => {
+        setIsVisible(!isVisible);
         await AsyncStorage.setItem('token', res.data.token);
 
         dispatch(addToken(res.data.token));
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        setIsVisible(!isVisible);
+        console.log(err);
+      });
   };
 
   return (
@@ -46,6 +52,7 @@ export default function LoginForm(): JSX.Element {
             />
 
             <Button
+              titleStyle={{fontFamily: 'rockwell', fontWeight: 'normal'}}
               containerStyle={styles.btnContainerLogin}
               buttonStyle={styles.btnLogin}
               onPress={handleSubmit}

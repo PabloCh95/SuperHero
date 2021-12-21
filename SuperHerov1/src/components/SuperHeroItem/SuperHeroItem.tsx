@@ -1,21 +1,27 @@
 import React from 'react';
 import {Image, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon} from 'react-native-elements';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {addHeros} from '../../store/HeroSlice';
 import {Result} from '../../utils/interface';
 interface Props {
   heroe: Result;
   navigation: any;
+  //selector: Result[];
 }
 
 export default function SuperHeroeItem({
   heroe,
   navigation,
-}: Props): JSX.Element {
+}: //selector,
+Props): JSX.Element {
   const {image, name} = heroe;
+  const selector = useSelector((state: any) => state.hero);
 
   const dispatch = useDispatch();
+  console.log('selector en SuperHeroeItem:', selector);
+
+  const verifyHero = selector.includes(heroe);
 
   const add = () => {
     dispatch(addHeros(heroe));
@@ -37,13 +43,17 @@ export default function SuperHeroeItem({
           <Text style={styles.itemActivity}>Press for more details</Text>
         </View>
       </TouchableOpacity>
-      <Icon
-        type="antdesign"
-        name="plus"
-        size={20}
-        color="orange"
-        onPress={add}
-      />
+      {verifyHero ? (
+        <Icon type="antdesign" name="minuscircleo" size={20} color="orange" />
+      ) : (
+        <Icon
+          type="antdesign"
+          name="plus"
+          size={20}
+          color="orange"
+          onPress={add}
+        />
+      )}
     </View>
   );
 }

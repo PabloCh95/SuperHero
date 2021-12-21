@@ -81,6 +81,8 @@ const styles = StyleSheet.create({
   viewContainer: {
     alignItems: 'center',
     marginTop: 15,
+    backgroundColor: '#222527',
+    borderRadius: 20,
   },
   textTitle: {
     fontSize: 20,

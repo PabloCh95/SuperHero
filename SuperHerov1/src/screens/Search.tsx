@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, FlatList, StatusBar} from 'react-native';
 import SuperHeroeItem from '../components/SuperHeroItem/SuperHeroItem';
 import NotFoundResults from '../components/NotFoundResults/NotFoundResults';
+//redux
+//import {useDispatch, useSelector} from 'react-redux';
+
 import {SearchBar} from 'react-native-elements';
 import {getSearch} from '../api/Search';
 import {RootObject} from '../utils/interface';
@@ -11,10 +14,13 @@ export default function Search(props: {navigation: any}): JSX.Element {
   const [search, setSearch] = useState<string>('');
   const [superHeroes, setSuperHeroes] = useState<RootObject>({});
 
+  //const selector = useSelector((state: any) => state.hero);
+
   useEffect(() => {
     (async () => {
       if (search.length > 3) {
-        setSuperHeroes(await getSearch(search));
+        const response = await getSearch(search);
+        setSuperHeroes(response);
       }
     })();
   }, [search]);
@@ -34,7 +40,11 @@ export default function Search(props: {navigation: any}): JSX.Element {
         <FlatList
           data={superHeroes.results}
           renderItem={heroes => (
-            <SuperHeroeItem heroe={heroes.item} navigation={navigation} />
+            <SuperHeroeItem
+              heroe={heroes.item}
+              navigation={navigation}
+              // selector={selector}
+            />
           )}
           keyExtractor={(item, index: number) => index.toString()}
         />

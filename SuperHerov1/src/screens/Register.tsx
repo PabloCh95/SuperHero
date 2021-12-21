@@ -6,18 +6,20 @@ import RegisterForm from '../components/RegisterForm/RegisterForm';
 
 export default function Login(): JSX.Element {
   return (
-    <KeyboardAwareScrollView>
-      <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
-      <Image
-        source={require('../assets/img/jpg/logo4.jpg')}
-        resizeMode="contain"
-        style={styles.logo}
-      />
-      <Divider style={styles.divider} color="orange" />
-      <View style={styles.viewContainer}>
-        <RegisterForm />
-      </View>
-    </KeyboardAwareScrollView>
+    <View style={{flex: 1}}>
+      <KeyboardAwareScrollView>
+        <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
+        <Image
+          source={require('../assets/img/jpg/logo4.jpg')}
+          resizeMode="contain"
+          style={styles.logo}
+        />
+        <Divider style={styles.divider} color="orange" />
+        <View style={styles.viewContainer}>
+          <RegisterForm />
+        </View>
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
 

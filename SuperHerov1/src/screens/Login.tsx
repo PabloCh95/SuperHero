@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/core';
 import {
   ScrollView,
@@ -10,22 +10,27 @@ import {
 } from 'react-native';
 import {Divider} from 'react-native-elements';
 import LoginForm from '../components/LoginForm/LoginForm';
+import Loading from '../components/Loading/Loading';
 
 export default function Login(): JSX.Element {
+  const [isVisible, setIsVisible] = useState(false);
   return (
-    <ScrollView style={styles.containerView}>
-      <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
-      <Image
-        source={require('../assets/img/jpg/logo4.jpg')}
-        resizeMode="contain"
-        style={styles.logo}
-      />
-      <Divider style={styles.divider} color="orange" />
-      <View style={styles.viewContainer}>
-        <LoginForm />
-        <CreateAccount />
-      </View>
-    </ScrollView>
+    <View style={{flex: 1}}>
+      <ScrollView style={styles.containerView}>
+        <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
+        <Image
+          source={require('../assets/img/jpg/logo4.jpg')}
+          resizeMode="contain"
+          style={styles.logo}
+        />
+        <Divider style={styles.divider} color="orange" />
+        <View style={styles.viewContainer}>
+          <LoginForm setIsVisible={setIsVisible} isVisible={isVisible} />
+          <CreateAccount />
+        </View>
+        <Loading isVisible={isVisible} text="Cargando..." />
+      </ScrollView>
+    </View>
   );
 }
 function CreateAccount() {
