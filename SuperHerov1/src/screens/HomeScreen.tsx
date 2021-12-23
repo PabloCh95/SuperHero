@@ -9,6 +9,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {RootDefaultState} from '../utils/interface';
 import {Result} from '../utils/interface';
 import {deleteHeros} from '../store/HeroSlice';
+import NotFoundHero from '../components/NotFoundResults/NotFoundHero';
+import {setAutoFreeze} from 'immer';
 
 export default function HomeScreen({navigation}: any): JSX.Element {
   const dispatch = useDispatch();
@@ -20,20 +22,34 @@ export default function HomeScreen({navigation}: any): JSX.Element {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
-      <Carousel
-        data={selector}
-        renderItem={(item: any) => (
-          <CardHero
-            heroe={item.item}
-            removeHero={removeHero}
-            navigation={navigation}
+
+      {selector.length != 0 ? (
+        <>
+          <Carousel
+            style={{flex: 1}}
+            data={selector}
+            renderItem={(item: any) => (
+              <CardHero
+                heroe={item.item}
+                removeHero={removeHero}
+                navigation={navigation}
+              />
+            )}
+            keyExtractor={(item: any, index: number) => index.toString()}
           />
-        )}
-        keyExtractor={(item: any, index: number) => index.toString()}
-      />
-      <InfoMyTeam heroes={selector} />
+          <InfoMyTeam heroes={selector} />
+        </>
+      ) : (
+        <>
+          <NotFoundHero />
+        </>
+      )}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {flex: 1, justifyContent: 'center', alignItems: 'center'},
+});

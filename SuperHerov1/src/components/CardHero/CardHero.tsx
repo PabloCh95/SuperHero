@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   containerCard: {
-    height: 200,
+    width: '90%',
+    height: 'auto',
     borderWidth: 0,
     backgroundColor: '#222527',
     justifyContent: 'center',

@@ -79,10 +79,13 @@ export default function InfoMyTeam({heroes}: {heroes: Result[]}) {
 
 const styles = StyleSheet.create({
   viewContainer: {
+    width: '80%',
+    height: 'auto',
     alignItems: 'center',
-    marginTop: 15,
     backgroundColor: '#222527',
     borderRadius: 20,
+    marginBottom: 25,
+    padding: 10,
   },
   textTitle: {
     fontSize: 20,

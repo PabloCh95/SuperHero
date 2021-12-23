@@ -16,9 +16,9 @@ export default function DetailsHero(props: any) {
     return <Loading isVisible={true} text="Cargando" />;
   }
   return (
-    <View style={{flex: 1, flexGrow: 1}}>
+    <View style={styles.container}>
+      <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
       <ScrollView>
-        <StatusBar backgroundColor="#000000" barStyle={'light-content'} />
         <Image source={{uri: heroe.image.url}} style={styles.ImageHero} />
         <Text style={styles.TitleName}>{heroe.name}</Text>
         <Text style={styles.Description}></Text>
@@ -49,6 +49,7 @@ export default function DetailsHero(props: any) {
 }
 
 const styles = StyleSheet.create({
+  container: {flex: 1, flexGrow: 1},
   ImageHero: {
     marginTop: 10,
     marginBottom: 10,

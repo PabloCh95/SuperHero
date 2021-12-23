@@ -19,7 +19,6 @@ Props): JSX.Element {
   const selector = useSelector((state: any) => state.hero);
 
   const dispatch = useDispatch();
-  console.log('selector en SuperHeroeItem:', selector);
 
   const verifyHero = selector.includes(heroe);
 
