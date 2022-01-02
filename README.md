@@ -4,3 +4,4 @@
 <br/>Vas a poder ver las habilidades y niveles de poder, como asi también su informacion.</p>
 
 ![SuperHero](https://imgur.com/Gg9Ejio.gif)
+<img src="https://imgur.com/Gg9Ejio.gif" width="50%" height="20%" style={{margin:5rem}} />
